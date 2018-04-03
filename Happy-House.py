@@ -7,3 +7,23 @@ from keras.layers.merge import Concatenate
 from keras.layers.core import Lambda, Flatten, Dense
 from keras.initializers import glorot_uniform
 from keras.engine.topology import Layer
+from keras import backend as K
+K.set_image_data_format('channels_first')
+import cv2
+import os
+import numpy as np
+from numpy import genfromtxt
+import pandas as pd
+import tensorflow as tf
+from fr_utils import *
+from inception_blocks_v2 import *
+
+%matplotlib inline
+%load_ext autoreload
+%autoreload 2
+
+np.set_printoptions(threshold=np.nan)
+
+FRmodel = faceRecoModel(input_shape=(3, 96, 96))
+In [3]:
+print("Total Params:", FRmodel.count_params())
