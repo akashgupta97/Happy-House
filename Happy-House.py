@@ -69,3 +69,6 @@ with tf.Session() as test:
     loss = triplet_loss(y_true, y_pred)
 
     print("loss = " + str(loss.eval()))
+    
+FRmodel.compile(optimizer = 'adam', loss = triplet_loss, metrics = ['accuracy'])
+load_weights_from_FaceNet(FRmodel)
