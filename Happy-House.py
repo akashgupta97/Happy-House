@@ -87,3 +87,27 @@ database["kevin"] = img_to_encoding("images/kevin.jpg", FRmodel)
 database["felix"] = img_to_encoding("images/felix.jpg", FRmodel)
 database["benoit"] = img_to_encoding("images/benoit.jpg", FRmodel)
 database["arnaud"] = img_to_encoding("images/arnaud.jpg", FRmodel)
+
+
+def verify(image_path, identity, database, model):
+    """
+    Function that verifies if the person on the "image_path" image is "identity".
+
+    Arguments:
+    image_path -- path to an image
+    identity -- string, name of the person you'd like to verify the identity. Has to be a resident of the Happy house.
+    database -- python dictionary mapping names of allowed people's names (strings) to their encodings (vectors).
+    model -- your Inception model instance in Keras
+
+    Returns:
+    dist -- distance between the image_path and the image of "identity" in the database.
+    door_open -- True, if the door should open. False otherwise.
+    """
+
+    ### START CODE HERE ###
+
+    # Step 1: Compute the encoding for the image. Use img_to_encoding() see example above. (≈ 1 line)
+    encoding = img_to_encoding(image_path, model)
+
+    # Step 2: Compute distance with identity's image (≈ 1 line)
+    dist = np.linalg.norm(encoding - database[identity])
