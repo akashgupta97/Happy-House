@@ -123,3 +123,6 @@ def verify(image_path, identity, database, model):
     ### END CODE HERE ###
 
     return dist, door_open
+
+
+verify("images/camera_0.jpg", "younes", database, FRmodel)
