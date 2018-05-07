@@ -153,3 +153,18 @@ def who_is_it(image_path, database, model):
 
     # Initialize "min_dist" to a large value, say 100 (≈1 line)
     min_dist = 100
+
+    # Loop over the database dictionary's names and encodings.
+    for (name, db_enc) in database.items():
+
+        # Compute L2 distance between the target "encoding" and the current "emb" from the database. (≈ 1 line)
+        dist = np.linalg.norm(encoding - db_enc)
+
+        # If this distance is less than the min_dist, then set min_dist to dist, and identity to name. (≈ 3 lines)
+        if dist < min_dist:
+            min_dist = dist
+            identity = name
+
+            ### END CODE HERE ###
+
+            
