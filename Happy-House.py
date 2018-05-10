@@ -173,3 +173,5 @@ def who_is_it(image_path, database, model):
                 print("it's " + str(identity) + ", the distance is " + str(min_dist))
 
             return min_dist, identity
+
+        who_is_it("images/camera_0.jpg", database, FRmodel)
